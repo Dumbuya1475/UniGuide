@@ -1,0 +1,7 @@
+/* src/components/Dashboard/Dashboard.css */
+
+.dashboard {
+  display: flex;
+  min-height: 100vh;
+  background: #eff0ff;
+}

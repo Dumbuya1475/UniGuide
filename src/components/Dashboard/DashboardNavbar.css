@@ -1,0 +1,79 @@
+/* src/components/dashboard-navbar.css */
+.dashboard-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--secondary-color);
+  margin-left: 270px;
+  z-index: 3;
+  color: white;
+}
+
+.dashboard-navbar .navbar-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  width: 100%;
+}
+.dashboard-navbar .navbar-content .left{
+  display: flex;
+    flex-direction: row;
+    align-items: center;
+gap: 0.5rem;}
+
+ul li {
+  list-style: none;
+  text-decoration: none;
+}
+
+.dashboard-navbar-logo a {
+  color: white;
+  color: var(--secondary-color);
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.dashboard-navbar-logo span {
+  color: var(--highlight-color);
+}
+
+.dashboard-navbar img {
+  width: 2rem;
+  border-radius: 50%;
+}
+
+.dashboard-navbar-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.dashboard-navbar-links a {
+  color: white;
+  text-decoration: none;
+}
+
+.dashboard-navbar-links a:hover {
+  color: #ffcc00;
+}
+
+/* ====================================================== */
+/* Responsive Styles */
+@media (max-width: 768px) {
+
+  /* Tablet */
+  .dashboard-navbar {
+margin-left: 0;  }
+}
+
+
+@media (max-width: 480px) {
+  /* Phone */
+}

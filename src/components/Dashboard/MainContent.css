@@ -1,0 +1,48 @@
+.main-content {
+  background: var(--background-color);
+  width: 100%;
+  margin-top: 6rem;
+  border-radius: 0.5rem;
+  height: fit-content;
+  margin-left: 290px;
+  margin-right: 20px;
+  flex: 1;
+  padding: 2rem;
+}
+
+.main-content h1 {
+  color: #003060;
+  /* font-size: 2rem; */
+  /* margin-bottom: 1rem; */
+}
+
+.main-content p {
+  color: #666;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* ====================================================== */
+/* Responsive Styles */
+@media (max-width: 768px) {
+
+  /* Tablet */
+  .main-content {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+
+@media (max-width: 480px) {
+
+  /* Phone */
+  .main-content {
+    margin-right: 0;
+    padding: var(--padding-small);
+  }
+
+  .main-content h1 {
+    font-size: 2rem;
+  }
+}
