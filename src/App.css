@@ -1,0 +1,39 @@
+:root {
+  --background-color: #f0f4f8;
+  --background-color: #fff;
+  --primary-color: #004080;
+  --secondary-color: #003060;
+  --highlight-color: #ffcc00;
+  --text-color-dark: #333;
+  /* --text-color-dark: #666; */
+  --text-color-light: #eee;
+  --overlay-color: rgba(0, 0, 0, 0.7);
+  --card-background: rgba(255, 255, 255, 0.2);
+  --card-border: rgba(255, 255, 255, 0.3);
+
+  /* Padding Variables for Different Screen Sizes */
+  --padding-small: 5rem 0.5rem;
+  /* For mobile devices */
+  --padding-medium: 5rem 3rem;
+  /* For tablets */
+  --padding-large: 5rem 10rem;
+  /* For desktop */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.main-page,
+.signup-page,
+.about-page,
+.services-page,
+.faq-page,
+.feedback-page,
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--background-color);
+}
