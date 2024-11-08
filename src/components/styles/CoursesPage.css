@@ -1,0 +1,31 @@
+.courses-page {
+  padding: 20px;
+}
+
+.course-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+  background-color: #fff;
+  text-align: center;
+}
+
+.course-card img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 15px;
+}
+
+.course-card button {
+  background-color: #004080;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.course-card button:hover {
+  background-color: #003366;
+}

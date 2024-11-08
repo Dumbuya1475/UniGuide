@@ -1,8 +1,4 @@
-import {
-  FaFacebook,
-  FaLinkedin,
-  FaTwitter,
-} from "react-icons/fa"; // Icons
+import { FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa"; // Icons
 
 // Import images
 import superImg from "../assets/images/img2.jpg";
@@ -19,14 +15,16 @@ function Team() {
             <div className="team-member">
               <img src={superImg} alt="Mohamed Super Dumbuya" />
               <h3 className="team-name">Mohamed Super Dumbuya</h3>
-              <h4 className="team-title">
-                Co-Founder - Tech Inspire SL
-              </h4>
+              <h4 className="team-title">Co-Founder - Tech Inspire SL</h4>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro
-                aliquam fugit facilis repellat? Cumque, labore. Non
-                exercitationem ea atque odit, ipsum magni mollitia numquam, est
-                illum aspernatur, unde corporis aperiam!
+                Hi, I&apos; m Mohamed, a passionate software developer and
+                co-founder of Tech Inspire SL. I believe that every student
+                deserves access to clear, actionable information that guides
+                them toward a fulfilling career path. UniGuide was created to
+                empower young people to make informed, confident decisions about
+                their futures. My goal is to bridge the gap between students and
+                the knowledge they need to explore university programs, career
+                paths, and the skills required to thrive.{" "}
               </p>
               <div className="team-social-icon">
                 <a href="">

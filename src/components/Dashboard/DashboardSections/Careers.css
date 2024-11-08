@@ -1,0 +1,79 @@
+.career-paths-container {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  width: 100%;
+  justify-content: center;
+}
+
+.career-page h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.career-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.career-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.career-image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.career-card h2 {
+  margin-top: 0;
+  font-size: 1.3rem;
+  color: #333;
+}
+
+.career-card p {
+  color: #666;
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+
+.career-card .career-overview-p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.career-card .title {
+  color: #333;
+}
+
+.career-card li {
+  margin: 0.5rem 0;
+  list-style-type: disc;
+  list-style-position: inside;
+  color: #666;
+}
+
+.learn-more-button {
+  margin-top: 1rem;
+  background-color: #004080;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.learn-more-button:hover {
+  background-color: #003366;
+}

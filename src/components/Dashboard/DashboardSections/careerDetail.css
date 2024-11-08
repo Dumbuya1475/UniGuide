@@ -1,0 +1,54 @@
+.career-detail-page {
+  flex-direction: column;
+  background-color: #eff0f3;
+  padding: 0;
+  border-radius: 8px;
+}
+
+.career-detail-container {
+  margin-left: 300px;
+  padding: 1rem;
+  padding-bottom: 3rem;
+  text-align: left;
+
+}
+
+.career-detail-container h1 {
+  font-size: 2.5rem;
+  color: #333;
+}
+
+.career-detail-container h3 {
+  color: #333;
+  margin-top: 20px;
+}
+
+.career-detail-container p {
+  font-size: 1rem;
+  color: #666;
+  max-width: 600px;
+}
+
+.career-detail-container li {
+  list-style-type: circle;
+  margin: 0.5rem 0;
+  list-style-position: inside;
+  padding-left: 1.5rem;
+  font-size: 1rem;
+}
+
+/* ====================================================== */
+/* Responsive Styles */
+@media (max-width: 768px) {
+
+  /* Tablet */
+  .career-detail-page,
+  .career-detail-container {
+    margin-left: 0;
+  }
+}
+
+
+@media (max-width: 480px) {
+  /* Phone */
+}

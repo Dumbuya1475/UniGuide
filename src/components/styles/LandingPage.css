@@ -1,0 +1,173 @@
+/* src/components/LandingPage.css */
+.landing-page-container {
+  background-image: url('/src/assets/images/UG_img_T.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+  height: 100vh;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing-page-container::before {
+  content: "";
+  position: absolute;
+  backdrop-filter: blur(1px);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+
+.landing-page .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2.9rem;
+  height: 100vh;
+  z-index: 4;
+}
+
+.landing-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-hero h1 {
+  font-size: 4.5rem;
+  color: var(--primary-color);
+}
+
+.landing-hero h1 span {
+  color: var(--highlight-color);
+}
+
+.landing-hero p {
+  width: 800px;
+  text-align: center;
+  font-size: 1.3em;
+  margin: 10px 0;
+  color: #fff;
+}
+
+.intro {
+  font-size: 1.5rem;
+  color: #004080;
+  margin: 0;
+  text-align: center;
+  max-width: 640px;
+}
+
+.intro h2 {
+  font-size: 1.8em;
+  background-color: #004080;
+  color: #fff;
+  border-radius: 50px;
+  padding: 0 1rem;
+}
+
+.intro p {
+  text-align: center;
+  font-size: 1em;
+  color: #eee;
+}
+
+.highlights {
+  display: flex;
+  gap: 2rem;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 800px;
+}
+
+.highlight-card {
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 20px;
+  width: 80%;
+  max-width: 400px;
+  color: #fff;
+  text-align: center;
+  margin: 20px auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.highlight-card:hover .highlight-icon {
+  color: #ffcc00;
+}
+
+.get-started-button {
+  background-color: #004080;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.1em;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.get-started-button:hover {
+  background-color: #003060;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .landing-hero h1 {
+    font-size: 3.5rem;
+  }
+
+  .landing-hero p {
+    width: 90%;
+    font-size: 1.1em;
+  }
+
+  .intro h2 {
+    font-size: 1.5em;
+  }
+
+  .highlights {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .landing-page-container {
+    background-position: center;
+  }
+
+  .landing-hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .landing-hero p {
+    font-size: 1em;
+  }
+
+  .intro h2 {
+    font-size: 1.3em;
+  }
+
+  .highlight-card {
+    padding: 15px;
+  }
+
+  .get-started-button {
+    padding: 10px 20px;
+    font-size: 1em;
+  }
+}

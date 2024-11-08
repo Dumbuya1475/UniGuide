@@ -1,0 +1,77 @@
+.course-card {
+  background-color: #f4f4f8;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.course-card h2 {
+  font-size: 1.5em;
+  margin: 0 0 8px;
+  color: var(--text-color-dark);
+  color: var(--primary-color);
+}
+
+.course-card button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.course-card button:hover {
+  background-color: #0056b3;
+  background-color: var(--secondary-color);
+}
+
+.course-details {
+  margin-top: 16px;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  border: 1px solid #ddd;
+}
+
+.course-details h3 {
+  font-size: 1.2rem;
+  color: var(--text-color-dark);
+  margin-bottom: 0.5rem;
+}
+
+.course-details ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.course-details li {
+  line-height: 1.32;
+  list-style-type: disc;
+  padding-left: 20px;
+  color: var(--text-color-dark);
+}
+
+/* ====================================================== */
+/* Responsive Styles */
+@media (max-width: 768px) {
+
+  /* Tablet */
+  .main-content {
+    margin-left: 0;
+  }
+}
+
+
+@media (max-width: 480px) {
+
+  /* Phone */
+  .course-card {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .main-content h1 {
+    font-size: 2rem;
+  }
+}

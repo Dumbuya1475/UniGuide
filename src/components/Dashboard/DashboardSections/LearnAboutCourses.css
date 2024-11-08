@@ -1,0 +1,44 @@
+.learn-about-courses {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.learn-about-courses h1 {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: red;
+}
+
+.course-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ====================================================== */
+/* Responsive Styles */
+@media (max-width: 768px) {
+
+  /* Tablet */
+  .main-content {
+    margin-left: 0;
+  }
+}
+
+
+@media (max-width: 480px) {
+
+  /* Phone */
+  .learn-about-courses {
+  margin-left: 0;
+  margin-right: 0;
+  padding: var(--padding-small);
+  padding-top: 0rem;
+}
+
+.main-content h1 {
+  font-size: 2rem;
+}
+}

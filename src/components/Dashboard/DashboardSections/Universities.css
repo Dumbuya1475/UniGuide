@@ -1,0 +1,109 @@
+/* src/components/Universities.css */
+
+.universities-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.universities-page h1 {
+  font-size: 2.5rem;
+  color: #333;
+}
+
+.universities-page p {
+  font-size: 1rem;
+  color: #555;
+  margin: 0.5rem 0 2rem;
+  max-width: 600px;
+}
+
+.universities-container {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  width: 100%;
+}
+
+.university-card {
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: left;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.university-card:hover {
+  transform: translateY(-5px);
+}
+
+.university-logo {
+  max-width: 80px;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.university-card h2 {
+  font-size: 1.3rem;
+  color: #333;
+}
+
+.university-card .tagline,
+.university-card .location,
+.university-card .type,
+.university-card .program {
+  color: #666;
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+
+.action-btn {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.website-link {
+  display: block;
+  color: #0073e6;
+  margin-top: 1rem;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.learn-more-button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #0073e6;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.learn-more-button:hover {
+  background-color: #005bb5;
+}
+/* ====================================================== */
+/* Responsive Styles */
+@media (max-width: 768px) {
+
+  /* Tablet */
+  .career-detail-page,
+  .career-detail-container {
+    margin-left: 0;
+  }
+}
+
+
+@media (max-width: 480px) {
+  /* Phone */
+  universities-page{
+    margin: 0;
+  }
+}

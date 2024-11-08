@@ -1,0 +1,54 @@
+/* src/components/styles/Settings.css */
+
+.settings-container {
+  max-width: 500px;
+  padding: 1rem;
+}
+
+.settings-container img{
+  width: 5rem;
+}
+.signout-button,
+button {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  margin: 0.3rem 0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  font-size: 0.9rem;
+  transition: all .3s ease;
+}
+button {
+  background-color: var(--primary-color);
+}
+button:hover {
+  background-color: var(--secondary-color);
+}
+
+.settings-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.password-change-form input,
+.password-change-form button {
+  margin: 10px 0.4rem;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.signout-button {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.signout-button:hover {
+  background-color: #c9302c;
+}

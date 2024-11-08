@@ -1,0 +1,144 @@
+.team-section {
+  padding: var(--padding-large);
+}
+
+.team-section .contents {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.team-header h2 {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.team-section .team-member-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0rem;
+}
+
+.team-section:last-child .team-member-container {
+  flex-wrap: wrap;
+}
+
+.team-section:last-child {
+  background-color: #eff0fe;
+}
+
+.team-section:last-child .container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.team-section:last-child .container img {
+  width: 5rem;
+}
+
+.team-section:last-child h3 {
+  font-size: 1rem;
+  text-align: left;
+  font-weight: 550;
+}
+
+.team-section:last-child p {
+  font-size: 1.1rem;
+}
+
+.team-member {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  flex: 1 1 20%;
+  margin: 10px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-member:hover {
+  transform: translate(-8px, -10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.team-member img {
+  width: 10rem;
+  border-radius: 50%;
+}
+
+.team-member h3 {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+}
+
+.team-member h4 {
+  color: var(--text-color-dark);
+  font-size: 1.1rem;
+}
+
+.team-member p {
+  color: var(--text-color-dark);
+  font-size: larger;
+}
+
+.team-icon {
+  margin: 0 0.5rem;
+  font-size: 2rem;
+  color: var(--text-color-dark);
+  transition: 0.3s ease;
+}
+
+.team-icon:hover {
+  color: var(--primary-color);
+}
+
+
+@media (max-width: 768px) {
+  .team-section {
+    padding: var(--padding-medium);
+  }
+
+  .team-member-container {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .team-member {
+    flex: 1 1 45%;
+  }
+
+  .team-section:last-child .team-member-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .team-section {
+    padding: var(--padding-small);
+  }
+
+  .team-member {
+    flex: 1 1 100%;
+    max-width: 100%;
+    margin: 10px;
+  }
+
+  .team-section:last-child .team-member-container {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}

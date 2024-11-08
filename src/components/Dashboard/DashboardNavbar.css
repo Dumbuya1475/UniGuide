@@ -22,11 +22,17 @@
   padding: 1rem 1.5rem;
   width: 100%;
 }
-.dashboard-navbar .navbar-content .left{
+
+.dashboard-navbar .navbar-content .left {
   display: flex;
-    flex-direction: row;
-    align-items: center;
-gap: 0.5rem;}
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.dashboard-navbar .navbar-content .left p{
+  color: var(--text-color-light);
+}
 
 ul li {
   list-style: none;
@@ -70,7 +76,8 @@ ul li {
 
   /* Tablet */
   .dashboard-navbar {
-margin-left: 0;  }
+    margin-left: 0;
+  }
 }
 
 

@@ -27,7 +27,7 @@ const universities = [
     ],
     contactInfo: {
       email: "admissions@linkonkinguniversity.sl",
-      phone: "+232-XX-XXXX-XXX",
+      phone: "+232-XXX-XXX-XXX",
     },
     website: "http://linkonkinguniversity.sl",
   },
@@ -50,7 +50,7 @@ const universities = [
     ],
     contactInfo: {
       email: "admissions@centraluniversity.sl",
-      phone: "+232-XX-XXXX-XXX",
+      phone: "+232-XXX-XXX-XXX",
     },
     website: "http://centraluniversity.sl",
   },
@@ -73,7 +73,7 @@ const universities = [
     ],
     "contactInfo": {
       "email": "admissions@njalauniversity.sl",
-      "phone": "+232-XX-XXXX-XXX"
+      "phone": "+232-XXX-XXX-XXX"
     },
     "website": "http://njalauniversity.sl"
   },
@@ -95,7 +95,7 @@ const universities = [
     ],
     "contactInfo": {
       "email": "admissions@ipam.usl",
-      "phone": "+232-XX-XXXX-XXX"
+      "phone": "+232-XXX-XXX-XXX"
     },
     "website": "http://ipam.usl"
   },
@@ -118,7 +118,7 @@ const universities = [
     ],
     "contactInfo": {
       "email": "admissions@unimak.sl",
-      "phone": "+232-XX-XXXX-XXX"
+      "phone": "+232-XXX-XXX-XXX"
     },
     "website": "http://unimak.sl"
   },
@@ -141,7 +141,7 @@ const universities = [
     ],
     "contactInfo": {
       "email": "admissions@ebkuniversity.sl",
-      "phone": "+232-XX-XXXX-XXX"
+      "phone": "+232-XXX-XXX-XXX"
     },
     "website": "http://ebkuniversity.sl"
   },
@@ -164,7 +164,7 @@ const universities = [
     ],
     "contactInfo": {
       "email": "admissions@bluecrestcollege.sl",
-      "phone": "+232-XX-XXXX-XXX"
+      "phone": "+232-XXX-XXX-XXX"
     },
     "website": "http://bluecrestcollege.sl"
   },
@@ -187,7 +187,7 @@ const universities = [
   //   ],
   //   "contactInfo": {
   //     "email": "admissions@bluecrestcollege.sl",
-  //     "phone": "+232-XX-XXXX-XXX"
+  //     "phone": "+232-XXX-XXX-XXX"
   //   },
   //   "website": "http://bluecrestcollege.sl"
   // },
@@ -210,7 +210,7 @@ const universities = [
   //   ],
   //   "contactInfo": {
   //     "email": "admissions@bluecrestcollege.sl",
-  //     "phone": "+232-XX-XXXX-XXX"
+  //     "phone": "+232-XXX-XXX-XXX"
   //   },
   //   "website": "http://bluecrestcollege.sl"
   // },
@@ -233,7 +233,7 @@ const universities = [
   //   ],
   //   "contactInfo": {
   //     "email": "admissions@bluecrestcollege.sl",
-  //     "phone": "+232-XX-XXXX-XXX"
+  //     "phone": "+232-XXX-XXX-XXX"
   //   },
   //   "website": "http://bluecrestcollege.sl"
   // },
@@ -256,7 +256,7 @@ const universities = [
   //   ],
   //   "contactInfo": {
   //     "email": "admissions@bluecrestcollege.sl",
-  //     "phone": "+232-XX-XXXX-XXX"
+  //     "phone": "+232-XXX-XXX-XXX"
   //   },
   //   "website": "http://bluecrestcollege.sl"
   // },

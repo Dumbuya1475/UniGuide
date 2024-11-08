@@ -1,0 +1,116 @@
+/* src/components/Navbar.css */
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  /* Change to space-between for logo and toggle */
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background-color: rgba(0, 0, 0, 0.363);
+  z-index: 10;
+  color: white;
+}
+
+.sidebar-lists {
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar-lists li {
+  list-style: none;
+}
+
+.navbar-logo a {
+  color: var(--primary-color);
+  /* color: red;/ */
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.navbar-logo span {
+  color: var(--highlight-color);
+}
+
+.navbar-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.navbar-links a {
+  color: white;
+  text-decoration: none;
+}
+
+.navbar-links a:hover {
+  color: #ffcc00;
+}
+
+/* Mobile Styles */
+.navbar-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.navbar-toggle div {
+  width: 25px;
+  /* Width of the lines */
+  height: 3px;
+  /* Height of the lines */
+  background: white;
+  /* Color of the lines */
+  margin: 4px 0;
+  /* Space between lines */
+}
+
+.navbar-links {
+  display: flex;
+  gap: 1rem;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.navbar-links.active {
+  max-height: 500px;
+  opacity: 1;
+}
+
+
+/* Media Queries for Small Screens */
+@media (max-width: 768px) {
+  .navbar {
+    justify-content: space-between;
+  }
+
+  /* Ensure links are displayed normally on larger screens */
+  .navbar-links {
+    display: flex;
+    max-height: none;
+    opacity: 1;
+  }
+
+  .navbar-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+        backdrop-filter: blur(3px);
+    padding: 2rem;
+  }
+
+  .navbar-links.active {
+    display: flex;
+  }
+
+  .navbar-toggle {
+    display: flex;
+  }
+}

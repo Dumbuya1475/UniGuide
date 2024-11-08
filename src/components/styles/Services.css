@@ -1,0 +1,104 @@
+/* src/components/Services.css */
+.services-section {
+  background-color: var(--background-color);
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.services-section h2 {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.services-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.service-card {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 250px;
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translate(-8px, -10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.service-icon {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  color: var(--secondary-color);
+}
+
+.service-card h3 {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin: 10px 0;
+}
+
+.service-card p {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .features-section {
+    padding: var(--padding-small);
+  }
+
+  .services-section h2 {
+    font-size: 2rem;
+    /* Smaller heading size for tablets */
+  }
+
+  .service-card {
+    width: 100%;
+    max-width: 300px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+}
+
+@media (max-width: 480px) {
+  .services-section h2 {
+    font-size: 1.8rem;
+    /* Smaller heading for mobile */
+  }
+
+  .services-container {
+    flex-direction: column;
+    /* Stack cards vertically on mobile */
+    align-items: center;
+    /* Center cards */
+  }
+
+  .service-card {
+    width: 90%;
+    /* Full width for cards on mobile */
+    margin: 10px 0;
+    /* Adjust margins for spacing */
+  }
+
+  .service-icon {
+    font-size: 2.5rem;
+    /* Smaller icon for mobile */
+  }
+
+  .service-card h3 {
+    font-size: 1.3rem;
+    /* Smaller heading for service cards */
+  }
+
+  .service-card p {
+    font-size: 0.9rem;
+    /* Smaller text for service descriptions */
+  }
+}
