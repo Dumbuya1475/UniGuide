@@ -30,7 +30,12 @@
   justify-content: center;
   gap: 0.5rem;
 }
-.dashboard-navbar .navbar-content .left p{
+
+.menu-icon {
+  display: none;
+}
+
+.dashboard-navbar .navbar-content .left p {
   color: var(--text-color-light);
 }
 
@@ -78,9 +83,15 @@ ul li {
   .dashboard-navbar {
     margin-left: 0;
   }
+
+  .menu-icon {
+    display: block;
+  }
 }
 
 
 @media (max-width: 480px) {
-  /* Phone */
+  .menu-icon {
+    display: block;
+  }
 }

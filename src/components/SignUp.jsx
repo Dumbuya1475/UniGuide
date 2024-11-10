@@ -1,5 +1,5 @@
 // Import necessary Firebase functions
-import { db, auth } from "../firebase"; // Import configured Firebase instance
+import { db, auth } from "../firebaseConfig"; // Import configured Firebase instance
 import { doc, setDoc, serverTimestamp } from "firebase/firestore";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 

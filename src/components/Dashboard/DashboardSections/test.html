@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UniGuide Career Path Tool</title>
+  <style>
+    /* Basic CSS styling for UniGuide Tool */
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f4f6f8;
+      min-height: 100vh;
+      margin: 0;
+    }
+    .container {
+      width: 100%;
+      max-width: 600px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    h2 {
+      color: #333;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 10px 0;
+      font-size: 16px;
+      color: #fff;
+      background-color: #007bff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .question, .options, .results {
+      margin: 15px 0;
+    }
+    .options button {
+      display: block;
+      width: 100%;
+      margin: 8px 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>UniGuide Career Path Tool</h2>
+  <div class="question">
+    <p id="questionText">Need help getting started? Answer a few questions to find the right career path for you!</p>
+  </div>
+  <div class="options" id="optionsContainer"></div>
+  <button id="nextButton" onclick="nextStep()">Next</button>
+  <div class="results" id="resultsContainer" style="display:none;">
+    <h3>Recommended Career Paths for You:</h3>
+    <ul id="careerPaths"></ul>
+  </div>
+</div>
+
+<script>
+  // Steps, options, and simple matching logic
+  let step = 0;
+  const answers = {
+    interest: "",
+    workExperience: "",
+    skills: "",
+    timeCommitment: ""
+  };
+
+  const questions = [
+    {
+      text: "Why are you interested in UniGuide?",
+      options: [
+        { text: "To explore tech careers", value: "tech" },
+        { text: "To explore non-tech careers", value: "nonTech" }
+      ],
+      field: "interest"
+    },
+    {
+      text: "How many years of work experience do you have?",
+      options: [
+        { text: "None", value: "beginner" },
+        { text: "1-2 years", value: "entry" },
+        { text: "3-5 years", value: "mid" },
+        { text: "5+ years", value: "experienced" }
+      ],
+      field: "workExperience"
+    },
+    {
+      text: "Which skills do you enjoy using most?",
+      options: [
+        { text: "Problem-solving and coding", value: "tech" },
+        { text: "Creativity and design", value: "design" },
+        { text: "Working with numbers and data", value: "data" },
+        { text: "Interpersonal communication", value: "communication" }
+      ],
+      field: "skills"
+    },
+    {
+      text: "How much time can you commit to learning?",
+      options: [
+        { text: "A few weeks (part-time)", value: "short" },
+        { text: "6 months (part-time)", value: "medium" },
+        { text: "1 year (full-time)", value: "long" }
+      ],
+      field: "timeCommitment"
+    }
+  ];
+
+  const careerRecommendations = {
+    tech: ["Software Engineering", "Web Development", "Data Science"],
+    nonTech: ["Graphic Design", "Marketing", "Human Resources"],
+    design: ["Graphic Design", "UI/UX Design"],
+    data: ["Data Analysis", "Finance"],
+    communication: ["Sales", "Public Relations"]
+  };
+
+  function showQuestion() {
+    const question = questions[step];
+    document.getElementById("questionText").innerText = question.text;
+    const optionsContainer = document.getElementById("optionsContainer");
+    optionsContainer.innerHTML = "";
+    question.options.forEach(option => {
+      const button = document.createElement("button");
+      button.innerText = option.text;
+      button.onclick = () => selectOption(option.value);
+      optionsContainer.appendChild(button);
+    });
+  }
+
+  function selectOption(value) {
+    answers[questions[step].field] = value;
+    nextStep();
+  }
+
+  function nextStep() {
+    if (step < questions.length - 1) {
+      step++;
+      showQuestion();
+    } else {
+      showResults();
+    }
+  }
+
+  function showResults() {
+    document.getElementById("optionsContainer").style.display = "none";
+    document.getElementById("nextButton").style.display = "none";
+    document.getElementById("resultsContainer").style.display = "block";
+
+    const careerPaths = careerRecommendations[answers.interest] || [];
+    if (answers.skills && careerRecommendations[answers.skills]) {
+      careerPaths.push(...careerRecommendations[answers.skills]);
+    }
+
+    const uniqueCareers = [...new Set(careerPaths)];
+    const resultsList = document.getElementById("careerPaths");
+    resultsList.innerHTML = "";
+    uniqueCareers.forEach(career => {
+      const listItem = document.createElement("li");
+      listItem.innerText = career;
+      resultsList.appendChild(listItem);
+    });
+  }
+
+  // Initialize the first question
+  showQuestion();
+</script>
+
+</body>
+</html>

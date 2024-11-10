@@ -52,3 +52,49 @@ button:hover {
 .signout-button:hover {
   background-color: #c9302c;
 }
+
+
+.user-info {
+  margin: 20px 0;
+  font-size: 16px;
+}
+
+.user-info p {
+  margin: 5px 0;
+  color: #555;
+}
+
+.password-change-form input,
+.password-change-form button {
+  margin: 10px 0;
+}
+
+.signout-button {
+  margin-top: 20px;
+  background-color: #f44336;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.signout-button:hover {
+  background-color: #e53935;
+}
+
+
+
+.career-path-selection {
+  margin: 20px 0;
+}
+
+.career-path-selection select {
+  padding: 8px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.career-path-selection p {
+  margin-bottom: 10px;
+  font-weight: bold;
+}

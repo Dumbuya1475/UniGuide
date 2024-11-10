@@ -1,28 +1,29 @@
-// src/components/Dashboard/DashboardSections/Settings.jsx
 import { useEffect, useState } from "react";
-import { auth, db } from "../../../firebase"; // Adjust imports based on your structure
+import { auth, db } from "../../../firebaseConfig";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { signOut, updatePassword } from "firebase/auth";
 import "./Settings.css";
 
 function Settings() {
-  const [userData, setUserData] = useState({
-    fullName: "",
-    email: "",
-    notificationPreferences: true, // Default to true (enabled)
-    privacySettings: true, // Default to true (enabled)
-  });
-
+  const [userData, setUserData] = useState(null);
   const [newPassword, setNewPassword] = useState("");
-  const [profilePicture, setProfilePicture] = useState(null); // State for profile picture
-  const user = auth.currentUser; // Get current user
+  const [image, setImage] = useState(
+    localStorage.getItem("profilePic") || "default-profile.png"
+  );
+  const [newImage, setNewImage] = useState(null);
+  const [careerChoice, setCareerChoice] = useState(""); // Career choice state
+  const user = auth.currentUser;
 
   useEffect(() => {
     const fetchUserData = async () => {
       if (user) {
-        const userDoc = await getDoc(doc(db, "users", user.email));
+        const userDoc = await getDoc(doc(db, "users", user.uid)); // Fetch user data from Firestore
         if (userDoc.exists()) {
-          setUserData(userDoc.data());
+          const data = userDoc.data();
+          setUserData(data);
+          setCareerChoice(data.careerChoice || ""); // Set initial career choice if it exists
+        } else {
+          console.error("No such document!");
         }
       }
     };
@@ -30,25 +31,7 @@ function Settings() {
     fetchUserData();
   }, [user]);
 
-  // const handleChange = (e) => {
-  //   setUserData({ ...userData, [e.target.name]: e.target.value });
-  // };
-
-  // const handleCheckboxChange = (e) => {
-  //   setUserData({ ...userData, [e.target.name]: e.target.checked });
-  // };
-
-  const handleSave = async (e) => {
-    e.preventDefault();
-    try {
-      await updateDoc(doc(db, "users", user.email), userData);
-      alert("Settings updated successfully!");
-    } catch (error) {
-      console.error("Error updating settings: ", error);
-      alert("Error updating settings. Please try again.");
-    }
-  };
-
+  // Handle sign out
   const handleSignOut = async () => {
     try {
       await signOut(auth);
@@ -59,78 +42,103 @@ function Settings() {
     }
   };
 
+  // Handle password change
   const handlePasswordChange = async (e) => {
     e.preventDefault();
     try {
       await updatePassword(user, newPassword);
       alert("Password updated successfully!");
-      setNewPassword(""); // Reset password field
+      setNewPassword("");
     } catch (error) {
       console.error("Error updating password: ", error);
       alert("Error updating password. Please try again.");
     }
   };
 
-  const handleProfilePictureChange = (e) => {
-    const file = e.target.files[0];
+  // Handle career path selection
+  const handleCareerChoiceChange = async (e) => {
+    const selectedCareer = e.target.value;
+    setCareerChoice(selectedCareer);
+
+    // Update Firestore with the selected career path
+    if (selectedCareer) {
+      try {
+        await updateDoc(doc(db, "users", user.uid), {
+          careerChoice: selectedCareer,
+        });
+        alert("Career path updated successfully!");
+      } catch (error) {
+        console.error("Error updating career path: ", error);
+        alert("Error updating career path. Please try again.");
+      }
+    }
+  };
+
+  // Handle image upload and preview
+  const handleImageUpload = (event) => {
+    const file = event.target.files[0];
     if (file) {
       const reader = new FileReader();
-      reader.onloadend = () => {
-        setProfilePicture(reader.result);
+      reader.onload = (e) => {
+        setNewImage(e.target.result); // Set the image preview
       };
       reader.readAsDataURL(file);
+    }
+  };
+
+  // Save image changes
+  const handleSaveChanges = () => {
+    if (newImage) {
+      localStorage.setItem("profilePic", newImage);
+      setImage(newImage);
+      setNewImage(null);
+      window.location.reload();
     }
   };
 
   return (
     <div className="settings-container">
       <h2>Account Settings</h2>
-      <form className="settings-form" onSubmit={handleSave}>
-        {/* <input
-          type="text"
-          name="fullName"
-          placeholder="Full Name"
-          value={userData.fullName}
-          onChange={handleChange}
-          required
-        /> */}
-        {/* <input
-          type="email"
-          name="email"
-          placeholder="Email Address"
-          value={userData.email}
-          onChange={handleChange}
-          required
-          disabled // Disable to prevent changing email
-        /> */}
 
-        {/* <label>
-          <input
-            type="checkbox"
-            name="notificationPreferences"
-            checked={userData.notificationPreferences}
-            onChange={handleCheckboxChange}
-          />
-          Enable Notifications
-        </label> */}
+      {/* Display User Data */}
+      {userData ? (
+        <>
+          <div className="user-info">
+            <p>
+              <strong>Full Name:</strong> {userData.fullName || "Not available"}
+            </p>
+            <p>
+              <strong>Email:</strong> {userData.email || "Not available"}
+            </p>
+            <p>
+              <strong>Career Path:</strong>{" "}
+              {userData.careerChoice || "Not specified"}
+            </p>
+          </div>
+        </>
+      ) : (
+        <p>Loading user data...</p>
+      )}
 
-        {/* <label>
-          <input
-            type="checkbox"
-            name="privacySettings"
-            checked={userData.privacySettings}
-            onChange={handleCheckboxChange}
-          />
-          Share My Data
-        </label> */}
+      {/* Career Path Selection (Always visible) */}
+      <div className="career-path-selection">
+        <p>
+          <strong>Career Path:</strong>
+        </p>
+        <select value={careerChoice} onChange={handleCareerChoiceChange}>
+          <option value="">Select your career path</option>
+          <option value="Software Engineering">Software Engineering</option>
+          <option value="Data Science">Data Science</option>
+          <option value="Web Development">Web Development</option>
+          <option value="AI/ML">AI/ML</option>
+          <option value="Cyber Security">Cyber Security</option>
+          <option value="Others">Others</option>
+        </select>
+      </div>
 
-        {/* <button type="submit" className="settings-button">
-          Save Changes
-        </button> */}
-      </form>
-
+      {/* Change Password Form */}
       <form className="password-change-form" onSubmit={handlePasswordChange}>
-        <h2>Change Password</h2>
+        <h3>Change Password</h3>
         <input
           type="password"
           value={newPassword}
@@ -141,16 +149,21 @@ function Settings() {
         <button type="submit">Update Password</button>
       </form>
 
-      <div className="profile-picture-section">
-        <h2>Profile Picture</h2>
-        {profilePicture && <img src={profilePicture} alt="Profile" />}
-        <input
-          type="file"
-          accept="image/*"
-          onChange={handleProfilePictureChange}
+      {/* Profile Image Upload */}
+      <h3>Profile Picture</h3>
+      <input type="file" onChange={handleImageUpload} />
+      <div>
+        <img
+          src={newImage || image}
+          alt="Profile Preview"
+          style={{ width: "50px", height: "50px", borderRadius: "50%" }}
         />
       </div>
+      <button onClick={handleSaveChanges} disabled={!newImage}>
+        Save Changes
+      </button>
 
+      {/* Sign Out Button */}
       <button className="signout-button" onClick={handleSignOut}>
         Sign Out
       </button>

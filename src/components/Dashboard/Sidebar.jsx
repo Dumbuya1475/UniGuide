@@ -12,16 +12,17 @@ import {
   FaToolbox,
   FaLayerGroup,
 } from "react-icons/fa";
+import PropTypes from "prop-types";
 import "./Sidebar.css";
 
-function Sidebar() {
+function Sidebar({ isOpen, toggleSidebar }) {
   return (
-    <aside className="sidebar">
+    <aside className={`sidebar ${isOpen ? "open" : "closed"}`}>
       <div className="navbar-logo">
         <NavLink to="/" activeClassName="active">
           <span>Uni</span>Guide
         </NavLink>
-        <FaRegWindowClose />
+        <FaRegWindowClose onClick={toggleSidebar} className="close-icon" />
       </div>
       <nav>
         <ul className="sidebar-lists">
@@ -58,31 +59,11 @@ function Sidebar() {
               <FaToolbox /> Skills Development
             </NavLink>
           </li>
-          {/* <li>
-            <NavLink to="/dashboard/overview" activeClassName="active">
-              <FaRoute /> Skills Assessment:
-            </NavLink>
-          </li> */}
-          {/* <li>
-            <NavLink to="/dashboard/overview" activeClassName="active">
-              <FaRoute /> Community Highlights:
-            </NavLink>
-          </li> */}
-          {/* <li>
-            <NavLink to="/dashboard/overview" activeClassName="active">
-              <FaRoute /> Job Opportunities
-            </NavLink>
-          </li> */}
-          {/* <li>
-            <NavLink to="/dashboard/overview" activeClassName="active">
-              <FaRoute /> Notifications
-            </NavLink>
-          </li> */}
         </ul>
 
         <ul className="sidebar-lists">
           <li>
-            <NavLink to="/about" activeClassName="active">
+            <NavLink to="/#about" activeClassName="active">
               <FaLayerGroup /> About Us
             </NavLink>
           </li>
@@ -106,5 +87,10 @@ function Sidebar() {
     </aside>
   );
 }
+
+Sidebar.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  toggleSidebar: PropTypes.func.isRequired,
+};
 
 export default Sidebar;

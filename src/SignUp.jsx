@@ -1,12 +1,12 @@
 // Import necessary Firebase functions
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { db } from "../firebase"; // Import configured Firebase instance
+import { db } from "../firebaseConfig"; // Import configured Firebase instance
 import { doc, setDoc, serverTimestamp } from "firebase/firestore";
 import "../components/styles/SignUp.css";
 
-import { createUserWithEmailAndPassword } from "firebase/auth"; // Import necessary function
-import { auth } from "../firebase"; // Adjust this import based on your file structure
+// import { createUserWithEmailAndPassword } from "firebase/auth"; // Import necessary function
+// import { auth } from "../firebase"; // Adjust this import based on your file structure
 
 
 function SignUp() {

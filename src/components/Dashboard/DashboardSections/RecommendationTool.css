@@ -1,0 +1,105 @@
+.recommendation-tool {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+}
+
+h2,
+h3 {
+  text-align: center;
+  color: #333;
+}
+
+.options {
+  margin-bottom: 1.5rem;
+}
+
+.option {
+  display: block;
+  margin: 0.5rem 0;
+  font-size: 16px;
+}
+
+input[type="radio"] {
+  margin-right: 0.5rem;
+}
+
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.welcome-screen {
+  text-align: center;
+}
+
+.welcome-screen h2 {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 1rem;
+}
+
+.welcome-screen p {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+.start-btn {
+  background-color: #28a745;
+  color: #fff;
+  padding: 0.6em 1.2em;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.start-btn:hover {
+  background-color: #218838;
+}
+
+.completion-message {
+  text-align: center;
+  font-size: 18px;
+  color: #333;
+  margin-top: 2em;
+}
+
+.recommendation {
+  font-weight: bold;
+  color: #333;
+}
+
+.restart-btn {
+  background-color: #28a745;
+  color: #fff;
+  padding: 0.6em 1.2em;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.restart-btn:hover {
+  background-color: #218838;
+}

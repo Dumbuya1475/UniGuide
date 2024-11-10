@@ -1,6 +1,6 @@
 // src/data/userService.js
 
-import { db } from "../firebase"; // Ensure this is your Firebase configuration
+import { db } from "../firebaseConfig"; // Ensure this is your Firebase configuration
 import { doc, setDoc, getDoc } from "firebase/firestore";
 
 /**

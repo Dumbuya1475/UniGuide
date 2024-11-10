@@ -1,5 +1,5 @@
 // fetchUserData.js
-import { db } from ".././firebase"; // Ensure the correct path to your Firebase config
+import { db } from ".././firebaseConfig"; // Ensure the correct path to your Firebase config
 import { doc, getDoc } from "firebase/firestore";
 // import { db } from ".././firebase"
 

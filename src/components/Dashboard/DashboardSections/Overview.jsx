@@ -1,7 +1,7 @@
 // src/components/Dashboard/DashboardSections/Overview.jsx
 import { FaRoad } from "react-icons/fa";
 import { useEffect, useState } from "react";
-import { auth, db } from "../../../firebase";
+import { auth, db } from "../../../firebaseConfig";
 import { onAuthStateChanged } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
 

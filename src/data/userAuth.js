@@ -1,5 +1,5 @@
 // src/data/userAuth.js
-import { auth } from "../firebase";
+import { auth } from "../firebaseConfig";
 import { onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
 
 export const observeUser = (setCurrentUser) => {

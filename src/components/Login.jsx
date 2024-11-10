@@ -1,8 +1,8 @@
 // src/components/Login.jsx
-import React, { useState } from "react";
+import  { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebase"; // Import configured Firebase auth instance
+import { auth } from "../firebaseConfig"; // Import configured Firebase auth instance
 import "../components/styles/Login.css";
 
 function Login() {
@@ -18,7 +18,7 @@ function Login() {
       navigate("/dashboard/home"); // Redirect to the desired page on successful login
     } catch (error) {
       console.error("Error logging in:", error);
-      setError("Incorrect email or password. Please try again.");
+      setError("Error while logging in. Please try again.");
     }
   };
 
@@ -47,7 +47,7 @@ function Login() {
           </button>
         </form>
         <p>
-          Don't have an account? <a href="/signup">Sign up here</a>
+          Don&apos;t have an account? <a href="/signup">Sign up here</a>
         </p>
       </div>
     </div>

@@ -29,13 +29,15 @@ function Navbar() {
           <a href="#about">About</a>
         </li>
         <li>
-          <a href="#services">Features</a>
+          <a href="#features">Features</a>
         </li>
         <li>
           <a href="#faq">FAQ</a>
         </li>
         <li>
-          <a href="#feedback">Feedback</a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSemlJkZC6bX1YnrOO8e7txzBWcyrebW2uxay1HwVj1n6lmYlg/viewform?usp=sf_link">
+            Feedback
+          </a>
         </li>
         <li>
           <Link to="/Login">Login</Link>

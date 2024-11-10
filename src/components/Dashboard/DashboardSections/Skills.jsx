@@ -1,166 +1,169 @@
-// src/components/Dashboard/DashboardSections/Skills.jsx
-import { useEffect, useState } from "react";
-import { auth, db } from "../../../firebase"; // Adjust imports based on your structure
-import { doc, getDoc, setDoc } from "firebase/firestore";
+import { FaArrowLeft } from "react-icons/fa";
+import { useState } from "react";
+// import "./RecommendationTool.css";
+import "./Skills.css";
 
-const careerPaths = [
-  {
-    name: "Web Development",
-    questions: [
-      {
-        question: "How comfortable are you with JavaScript?",
-        options: ["Not at all", "Somewhat", "Very Comfortable"],
-      },
-      {
-        question: "Do you know how to use version control systems (e.g., Git)?",
-        options: ["No", "Yes, but not proficient", "Yes, proficient"],
-      },
-      {
-        question: "How familiar are you with HTML and CSS?",
-        options: ["Not at all", "Somewhat", "Very Familiar"],
-      },
-    ],
-  },
-  {
-    name: "Data Science",
-    questions: [
-      {
-        question: "How comfortable are you with Python?",
-        options: ["Not at all", "Somewhat", "Very Comfortable"],
-      },
-      {
-        question: "Do you understand basic statistics?",
-        options: ["No", "Yes, but not proficient", "Yes, proficient"],
-      },
-      {
-        question: "Have you worked with data visualization tools?",
-        options: ["No", "Some experience", "Proficient"],
-      },
-    ],
-  },
-  // Add more career paths and their respective questions as needed
-];
+function RecommendationTool() {
+  const [step, setStep] = useState(-1); // Initial state for welcome screen
+  const [selectedAnswers, setSelectedAnswers] = useState({
+    interest: "",
+    goal: "",
+    skills: "",
+    timeCommitment: "",
+  });
 
-function Skills() {
-  const [selectedCareer, setSelectedCareer] = useState("");
-  const [answers, setAnswers] = useState([]);
-  const [questions, setQuestions] = useState([]);
-  const [userData, setUserData] = useState(null);
+  const [recommendation, setRecommendation] = useState(""); // Holds the recommended career path
 
-  const user = auth.currentUser; // Get the current user
+  const questions = [
+    {
+      question: "What are you most interested in?",
+      options: [
+        "Engineering",
+        "Health Sciences",
+        "Business",
+        "Arts & Humanities",
+      ],
+      field: "interest",
+    },
+    {
+      question: "What is your career goal?",
+      options: [
+        "Work in technology",
+        "Provide healthcare",
+        "Run a business",
+        "Be a creative professional",
+      ],
+      field: "goal",
+    },
+    {
+      question: "Which skills do you want to improve?",
+      options: [
+        "Analytical Thinking",
+        "Creativity",
+        "Leadership",
+        "Problem Solving",
+      ],
+      field: "skills",
+    },
+    {
+      question: "How much time can you dedicate to developing skills?",
+      options: ["5-10 hours a week", "10-20 hours a week", "20+ hours a week"],
+      field: "timeCommitment",
+    },
+  ];
 
-  useEffect(() => {
-    const fetchUserData = async () => {
-      if (user) {
-        const userDoc = await getDoc(doc(db, "users", user.email));
-        if (userDoc.exists()) {
-          setUserData(userDoc.data());
-          // Load previous assessment results if they exist
-          if (userDoc.data().assessmentResults) {
-            setSelectedCareer(userDoc.data().assessmentResults.careerPath);
-            setAnswers(
-              userDoc.data().assessmentResults.answers ||
-                Array(questions.length).fill("")
-            );
-            setQuestions(userDoc.data().assessmentResults.questions || []);
-          }
-        }
-      }
-    };
-
-    fetchUserData();
-  }, [user]);
-
-  const handleCareerChange = (e) => {
-    const selected = careerPaths.find((path) => path.name === e.target.value);
-    setSelectedCareer(selected.name);
-    setQuestions(selected.questions);
-    setAnswers(Array(selected.questions.length).fill(""));
+  const careerRecommendations = {
+    Engineering:
+      "Consider a career in engineering, such as a software engineer or mechanical engineer.",
+    "Health Sciences":
+      "Consider a career in healthcare, such as a doctor, nurse, or medical researcher.",
+    Business:
+      "Consider a career in business, such as a manager, entrepreneur, or financial analyst.",
+    "Arts & Humanities":
+      "Consider a career in arts and humanities, such as a designer, writer, or educator.",
   };
 
-  const handleOptionChange = (index, value) => {
-    const newAnswers = [...answers];
-    newAnswers[index] = value;
-    setAnswers(newAnswers);
+  const handleAnswer = (option) => {
+    setSelectedAnswers({ ...selectedAnswers, [questions[step].field]: option });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      if (user) {
-        // Save assessment results to Firestore
-        await setDoc(
-          doc(db, "users", user.email),
-          {
-            assessmentResults: {
-              careerPath: selectedCareer,
-              questions: questions,
-              answers: answers,
-            },
-          },
-          { merge: true }
-        ); // Use merge to avoid overwriting existing data
+  const handleNext = () => {
+    if (selectedAnswers[questions[step].field]) {
+      if (step < questions.length - 1) {
+        setStep(step + 1);
+      } else {
+        setRecommendation(
+          careerRecommendations[selectedAnswers.interest] ||
+            "No specific career recommendation found."
+        );
+        setStep(step + 1); // Proceed to the conclusion screen
       }
-      alert("Assessment submitted! Your answers: " + JSON.stringify(answers));
-    } catch (error) {
-      console.error("Error saving assessment: ", error);
-      alert("Error saving assessment. Please try again.");
+    } else {
+      alert("Please select an option before proceeding.");
     }
   };
 
+  const handleBack = () => {
+    if (step > 0) {
+      setStep(step - 1);
+    }
+  };
+
+  const restart = () => {
+    setSelectedAnswers({
+      interest: "",
+      goal: "",
+      skills: "",
+      timeCommitment: "",
+    });
+    setRecommendation("");
+    setStep(-1); // Go back to welcome screen
+  };
+
+  const showCompletionMessage = () => (
+    <div className="completion-message">
+      <p>Thank you for completing the career path quiz!</p>
+      <p>Recommended Career Path:</p>
+      <p className="recommendation">{recommendation}</p>
+      <button className="restart-btn" onClick={restart}>
+        Restart Career Path Quiz
+      </button>
+    </div>
+  );
+
+  const showWelcomeScreen = () => (
+    <div className="welcome-screen">
+      <h2>Hello! Welcome to UniGuide</h2>
+      <p>
+        Are you ready to discover a career that will best suit you but are not
+        sure where to start? Use our tool to guide you on which career might fit
+        you and your career goals best. It only takes a minute.
+      </p>
+      <button className="start-btn" onClick={() => setStep(0)}>
+        Start
+      </button>
+    </div>
+  );
+
   return (
-    <div className="skills-assessment-container">
-      <h2>Skills Assessment</h2>
-      <label>
-        Select a Career Path:
-        <select value={selectedCareer} onChange={handleCareerChange} required>
-          <option value="">--Select a Career Path--</option>
-          {careerPaths.map((path, index) => (
-            <option key={index} value={path.name}>
-              {path.name}
-            </option>
-          ))}
-        </select>
-      </label>
+    <div className="recommendation-tool">
+      <div className="navigation-buttons">
+          {step > 0 && (
+            <button onClick={handleBack} className="back-btn">
+              <FaArrowLeft />
+              Back
+            </button>
+          )}
+      </div>
 
-      {questions.length > 0 && (
-        <form onSubmit={handleSubmit}>
-          {questions.map((question, index) => (
-            <div key={index} className="question">
-              <p>{question.question}</p>
-              {question.options.map((option, i) => (
-                <label key={i}>
-                  <input
-                    type="radio"
-                    name={`question${index}`}
-                    value={option}
-                    checked={answers[index] === option}
-                    onChange={() => handleOptionChange(index, option)}
-                    required
-                  />
-                  {option}
-                </label>
-              ))}
-            </div>
-          ))}
-          <button type="submit">Submit Assessment</button>
-        </form>
-      )}
-
-      {userData && userData.assessmentResults && (
-        <div className="previous-results">
-          <h3>Your Previous Assessment Results</h3>
-          <p>Career Path: {userData.assessmentResults.careerPath}</p>
-          {userData.assessmentResults.questions.map((q, index) => (
-            <div key={index}>
-              <p>{q.question}</p>
-              <p>Your Answer: {userData.assessmentResults.answers[index]}</p>
-            </div>
-          ))}
+      {step === -1 ? (
+        showWelcomeScreen()
+      ) : step < questions.length ? (
+        <div>
+          <h3>{questions[step].question}</h3>
+          <div className="options">
+            {questions[step].options.map((option) => (
+              <label key={option} className="option">
+                <input
+                  type="radio"
+                  name={`question-${step}`}
+                  value={option}
+                  checked={selectedAnswers[questions[step].field] === option}
+                  onChange={() => handleAnswer(option)}
+                />
+                {option}
+              </label>
+            ))}
+          </div>
+          <div className="navigation-buttons">
+            <button className="next-btn" onClick={handleNext}>Next</button>
+          </div>
         </div>
+      ) : (
+        showCompletionMessage()
       )}
     </div>
   );
 }
 
-export default Skills;
+export default RecommendationTool;

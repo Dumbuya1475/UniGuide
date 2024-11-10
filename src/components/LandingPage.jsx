@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import About from "./About";
 import Features from "./Features";
 import Team from "./Team";
+import FAQs from "./FAQ";
 
 // Css style import
 import "../components/styles/LandingPage.css";
@@ -89,6 +90,7 @@ function LandingPage() {
           </div>
         </div>
       </section>
+      <FAQs />
     </div>
   );
 }
