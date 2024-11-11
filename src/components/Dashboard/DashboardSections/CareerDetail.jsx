@@ -28,7 +28,12 @@ function CareerDetail() {
       educationalPath:
         "Typically requires a Bachelor's degree in Computer Science, Software Engineering, or a related field.",
       salaryRange: "$60,000 - $120,000",
-      notableCompanies: ["Google", "Microsoft", "Facebook"],
+      globalNotableCompanies: ["Google", "Microsoft", "Facebook"],
+      notableCompaniesSierraLeone: [
+        "Rokel Communications",
+        "Meltwater Entrepreneurial School of Technology",
+        "SLCS",
+      ],
       futureOutlook:
         "Growing demand due to the increasing reliance on technology and data.",
     },
@@ -46,7 +51,12 @@ function CareerDetail() {
       educationalPath:
         "Typically requires a Bachelor's degree in Engineering. Specializations may require further education or certification.",
       salaryRange: "$70,000 - $110,000",
-      notableCompanies: ["General Electric", "Siemens", "Boeing"],
+      globalNotableCompanies: ["General Electric", "Siemens", "Boeing"],
+      notableCompaniesSierraLeone: [
+        "Sierra Leone Ports Authority",
+        "Sierra Leone Roads Authority",
+        "Addax Bioenergy Sierra Leone",
+      ],
       futureOutlook:
         "Stable demand with opportunities in emerging technologies and renewable energy.",
     },
@@ -60,7 +70,16 @@ function CareerDetail() {
       educationalPath:
         "Typically requires relevant degrees and certifications. For example, doctors need a medical degree and residency training.",
       salaryRange: "$50,000 - $200,000",
-      notableCompanies: ["Mayo Clinic", "Johns Hopkins Medicine", "Pfizer"],
+      globalNotableCompanies: [
+        "Mayo Clinic",
+        "Johns Hopkins Medicine",
+        "Pfizer",
+      ],
+      notableCompaniesSierraLeone: [
+        "Sierra Leone Ministry of Health and Sanitation",
+        "Mercy Ships Sierra Leone",
+        "King's Sierra Leone Partnership",
+      ],
       futureOutlook:
         "High demand due to ongoing health challenges and an aging population.",
     },
@@ -74,7 +93,12 @@ function CareerDetail() {
       educationalPath:
         "Typically requires a Bachelor's degree in Business Administration or a related field. MBA is often preferred for higher roles.",
       salaryRange: "$55,000 - $150,000",
-      notableCompanies: ["Goldman Sachs", "McKinsey & Company", "Apple"],
+      globalNotableCompanies: ["Goldman Sachs", "McKinsey & Company", "Apple"],
+      notableCompaniesSierraLeone: [
+        "Orange Sierra Leone",
+        "Airtel Sierra Leone",
+        "Sierra Leone Brewery Limited",
+      ],
       futureOutlook:
         "Growing opportunities with a focus on innovation and digital transformation.",
     },
@@ -88,7 +112,12 @@ function CareerDetail() {
       educationalPath:
         "Typically requires a degree in Fine Arts, Graphic Design, or a related field. Portfolio is often crucial.",
       salaryRange: "$40,000 - $90,000",
-      notableCompanies: ["Pixar", "Disney", "Adobe"],
+      globalNotableCompanies: ["Pixar", "Disney", "Adobe"],
+      notableCompaniesSierraLeone: [
+        "National Museum of Sierra Leone",
+        "Sierra Leone Arts and Crafts Market",
+        "Freetown Arts Gallery",
+      ],
       futureOutlook:
         "Steady demand with opportunities in digital media and creative industries.",
     },
@@ -107,7 +136,11 @@ function CareerDetail() {
       educationalPath:
         "Typically requires a Bachelor's degree in Cybersecurity, Information Technology, or a related field. Certifications such as CISSP are highly valued.",
       salaryRange: "$70,000 - $150,000",
-      notableCompanies: ["IBM", "Cisco", "Palo Alto Networks"],
+      globalNotableCompanies: ["IBM", "Cisco", "Palo Alto Networks"],
+      notableCompaniesSierraLeone: [
+        "Sierra Leone Computer Security Association",
+        "Sierra Leone Government Cybersecurity Agency",
+      ],
       futureOutlook:
         "High demand with increasing importance of data security in all sectors.",
     },
@@ -129,10 +162,14 @@ function CareerDetail() {
       educationalPath:
         "Typically requires a Bachelor's degree in Environmental Science or a related field. Advanced roles may require a Master's or PhD.",
       salaryRange: "$50,000 - $90,000",
-      notableCompanies: [
+      globalNotableCompanies: [
         "Environmental Protection Agency",
         "World Wildlife Fund",
         "Greenpeace",
+      ],
+      notableCompaniesSierraLeone: [
+        "Environment Protection Agency Sierra Leone",
+        "Freetown City Council's Environment Division",
       ],
       futureOutlook:
         "Growing importance due to climate change and environmental protection efforts.",
@@ -151,7 +188,12 @@ function CareerDetail() {
       educationalPath:
         "Typically requires a degree in Marketing, Communications, or a related field. Practical experience and certifications are also valuable.",
       salaryRange: "$45,000 - $100,000",
-      notableCompanies: ["Google", "HubSpot", "Facebook"],
+      globalNotableCompanies: ["Google", "HubSpot", "Facebook"],
+      notableCompaniesSierraLeone: [
+        "Sierra Leone Yellow Pages",
+        "SL Trade Network",
+        "Insight Sierra Leone",
+      ],
       futureOutlook:
         "High demand as digital presence becomes crucial for all businesses.",
     },
@@ -164,7 +206,7 @@ function CareerDetail() {
   const handleLearnMore = () => {
     navigate(`/dashboard/careers`);
   };
-  
+
   // Effect to scroll to the top when the component mounts
   useEffect(() => {
     window.scrollTo(0, 0); // Scrolls to the top of the page
@@ -206,7 +248,13 @@ function CareerDetail() {
             <p>{career.salaryRange}</p>
             <h3>Notable Companies</h3>
             <ul>
-              {career.notableCompanies.map((company, index) => (
+              {career.globalNotableCompanies.map((company, index) => (
+                <li key={index}>{company}</li>
+              ))}
+            </ul>
+            <h3>Notable Companies</h3>
+            <ul>
+              {career.notableCompaniesSierraLeone.map((company, index) => (
                 <li key={index}>{company}</li>
               ))}
             </ul>

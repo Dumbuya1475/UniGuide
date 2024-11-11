@@ -1,0 +1,9 @@
+{
+  "projects": {
+    "default": "uniguide-b996d",
+    "staging": "uniguide-b996d",
+    "production": "uniguide-b996d"
+  },
+  "targets": {},
+  "etags": {}
+}

@@ -143,3 +143,151 @@
     transform: translateX(-100%);
   } */
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==================================================== */
+/* Open and close buttons */
+.open-button,
+.close-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: #333;
+  cursor: pointer;
+  z-index: 25;
+}
+
+.close-button {
+  left: 250px;
+  /* Adjust as per sidebar width if needed */
+}
+
+/* Sidebar base styles */
+.sidebar {
+  width: 230px;
+  height: 100vh;
+  background-color: #fff;
+  color: #333;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  z-index: 20;
+  box-shadow: 1px 1px 5px rgba(0, 0, 3, 0.4);
+  left: 0;
+  top: 0;
+  bottom: 0;
+  transition: transform 0.3s ease;
+}
+
+/* Sidebar open/closed states */
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.sidebar.closed {
+  transform: translateX(-100%);
+}
+
+.navbar-logo {
+  font-size: 1.9rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sidebar ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 3rem;
+}
+
+.sidebar ul li a {
+  color: #333;
+  font-size: large;
+  font-weight: normal;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+  color: #004080;
+}
+
+.sidebar ul li a svg {
+  margin-right: 10px;
+  transition: all 0.3s ease;
+}
+
+.sidebar ul li a:hover svg {
+  color: #ffcc00;
+}
+
+.active {
+  color: #4CAF50;
+  font-weight: bold;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .sidebar.closed {
+    transform: translateX(-100%);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+}
+
+
+
+
+
+/* Active link styling */
+.sidebar ul li .active {
+  background-color: #004080;
+  /* Your desired background color */
+  color: #fff;
+  /* Change text color for better contrast */
+  border-radius: 5px;
+  /* Optional: for rounded corners */
+  padding: 10px;
+  /* Add padding for a better look */
+}
+
+/* Optional: Adjust text color on hover for active item */
+.sidebar ul li .active:hover {
+  color: #ffcc00;
+}

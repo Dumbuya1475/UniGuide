@@ -1,6 +1,5 @@
 import { FaArrowLeft } from "react-icons/fa";
 import { useState } from "react";
-// import "./RecommendationTool.css";
 import "./Skills.css";
 
 function RecommendationTool() {
@@ -22,6 +21,10 @@ function RecommendationTool() {
         "Health Sciences",
         "Business",
         "Arts & Humanities",
+        "Cybersecurity",
+        "Environmental Science",
+        "Education",
+        "Data Science",
       ],
       field: "interest",
     },
@@ -32,6 +35,10 @@ function RecommendationTool() {
         "Provide healthcare",
         "Run a business",
         "Be a creative professional",
+        "Protect digital information",
+        "Study and protect the environment",
+        "Teach and educate others",
+        "Analyze and interpret data",
       ],
       field: "goal",
     },
@@ -42,6 +49,10 @@ function RecommendationTool() {
         "Creativity",
         "Leadership",
         "Problem Solving",
+        "Technical Skills",
+        "Scientific Research",
+        "Communication",
+        "Data Analysis",
       ],
       field: "skills",
     },
@@ -61,6 +72,14 @@ function RecommendationTool() {
       "Consider a career in business, such as a manager, entrepreneur, or financial analyst.",
     "Arts & Humanities":
       "Consider a career in arts and humanities, such as a designer, writer, or educator.",
+    Cybersecurity:
+      "Consider a career in cybersecurity, such as a cybersecurity analyst or security consultant.",
+    "Environmental Science":
+      "Consider a career in environmental science, such as an environmental scientist or conservationist.",
+    Education:
+      "Consider a career in education, such as a teacher, professor, or educational consultant.",
+    "Data Science":
+      "Consider a career in data science, such as a data scientist or data analyst.",
   };
 
   const handleAnswer = (option) => {
@@ -128,12 +147,12 @@ function RecommendationTool() {
   return (
     <div className="recommendation-tool">
       <div className="navigation-buttons">
-          {step > 0 && (
-            <button onClick={handleBack} className="back-btn">
-              <FaArrowLeft />
-              Back
-            </button>
-          )}
+        {step > 0 && (
+          <button onClick={handleBack} className="back-btn">
+            <FaArrowLeft />
+            Back
+          </button>
+        )}
       </div>
 
       {step === -1 ? (
@@ -156,7 +175,9 @@ function RecommendationTool() {
             ))}
           </div>
           <div className="navigation-buttons">
-            <button className="next-btn" onClick={handleNext}>Next</button>
+            <button className="next-btn" onClick={handleNext}>
+              Next
+            </button>
           </div>
         </div>
       ) : (

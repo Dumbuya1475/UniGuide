@@ -11,10 +11,10 @@ function Overview() {
   const [userData, setUserData] = useState(null);
 
   useEffect(() => {
-    // Observe authentication state
+    // Listen for changes in the authentication state
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
-        // Fetch user data from Firestore
+        // Fetch user data from Firestore if user is authenticated
         try {
           const userDoc = await getDoc(doc(db, "users", user.uid));
           if (userDoc.exists()) {
@@ -30,7 +30,8 @@ function Overview() {
       }
     });
 
-    return () => unsubscribe(); // Cleanup subscription on unmount
+    // Cleanup subscription on component unmount
+    return () => unsubscribe();
   }, []);
 
   return (
@@ -44,7 +45,6 @@ function Overview() {
           <FaRoad />
           <div className="text">
             <h2>Career Path</h2>
-            {/* <p>Computer Science</p> */}
             <p>
               <span>Career Choice: </span>
               {userData?.careerChoice || "Not specified"}
@@ -60,14 +60,12 @@ function Overview() {
             <li>
               {userData ? (
                 <p>
-                  <strong> Welcome, </strong> {userData.fullName || "User"}
+                  <strong>Welcome,</strong> {userData.fullName || "User"}
                 </p>
               ) : (
                 <div>...</div>
               )}
-
-              {/* <strong>Welcome</strong> */}
-              <p>You have just Sign up </p>
+              <p>You have just signed up</p>
             </li>
           </ul>
         </div>

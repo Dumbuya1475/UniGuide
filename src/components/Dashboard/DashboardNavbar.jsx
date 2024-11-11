@@ -8,26 +8,26 @@ import Sidebar from "./Sidebar";
 import "./DashboardNavbar.css";
 
 function DashboardNavbar() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-  const [userData, setUserData] = useState(null);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true); // State to track sidebar visibility
+  const [userData, setUserData] = useState(null); // State to store user data
   const [profilePic, setProfilePic] = useState(
     localStorage.getItem("profilePic") || "default-profile.png"
-  );
+  ); // State to store profile picture
 
+  // Function to toggle sidebar visibility
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
   // Listen for changes to localStorage and update the profile picture state
   useEffect(() => {
-    // This listener will trigger when the profile picture is updated in localStorage
     const handleStorageChange = () => {
       const newProfilePic =
         localStorage.getItem("profilePic") || "default-profile.png";
       setProfilePic(newProfilePic);
     };
 
-    // Add the event listener to detect changes in localStorage
+    // Add event listener to detect changes in localStorage
     window.addEventListener("storage", handleStorageChange);
 
     return () => {
@@ -36,6 +36,7 @@ function DashboardNavbar() {
     };
   }, []);
 
+  // Listen for authentication state changes and fetch user data
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
@@ -52,6 +53,7 @@ function DashboardNavbar() {
       }
     });
 
+    // Cleanup subscription on component unmount
     return () => unsubscribe();
   }, []);
 
