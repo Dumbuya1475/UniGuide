@@ -11,6 +11,7 @@ import CareerDetail from "./components/Dashboard/DashboardSections/CareerDetail"
 import Universities from "./components/Dashboard/DashboardSections/Universities";
 import UniversityDetail from "./components/Dashboard/DashboardSections/UniversityDetail";
 import LearnAboutCourses from "./components/Dashboard/DashboardSections/LearnAboutCourses";
+import NotFoundPage from "./pages/NotFoundPage";
 
 import "./App.css";
 
@@ -35,19 +36,11 @@ function App() {
             </>
           }
         />
-        {/* <Route
-          path="/about"
-          element={
-            <>
-              <Navbar />
-              <About />
-              <Footer />
-            </>
-          }
-        /> */}
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/dashboard/*" element={<Dashboard />} />
+        {/* 404 route as a catch-all for undefined paths */}
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Router>
   );
