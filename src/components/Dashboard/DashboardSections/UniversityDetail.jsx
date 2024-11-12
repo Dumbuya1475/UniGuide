@@ -4,6 +4,7 @@ import { FaArrowAltCircleLeft } from "react-icons/fa";
 import { useNavigate, useParams } from "react-router-dom";
 import universities from "../../../data/universitiesData";
 import Sidebar from "../Sidebar";
+import DashboardNavbar from "../DashboardNavbar";
 import "./UniversityDetail.css";
 
 function UniversityDetail() {
@@ -24,6 +25,7 @@ function UniversityDetail() {
 
   return (
     <div className="university-detail-page">
+      <DashboardNavbar />
       <Sidebar />
       <div className="university-detail-container">
         <button onClick={() => handleLearnMore()} className="backBtn">

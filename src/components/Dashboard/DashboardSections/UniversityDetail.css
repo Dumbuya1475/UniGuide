@@ -10,6 +10,7 @@
 .university-detail-container {
   margin-left: 300px;
   padding: 1rem;
+  padding-top: 5rem;
   text-align: left;
 }
 
@@ -108,8 +109,9 @@
 
 
 @media (max-width: 480px) {
+
   /* Phone */
   .university-detail-page h1 {
-      font-size: 2rem;
-    }
+    font-size: 2rem;
+  }
 }

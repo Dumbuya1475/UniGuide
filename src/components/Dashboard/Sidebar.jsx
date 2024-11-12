@@ -84,7 +84,7 @@ function Sidebar() {
             </li>
             <li>
               <NavLink to="/dashboard/skills" activeClassName="active">
-                <FaToolbox /> Skills Development
+                <FaToolbox /> UG PathFinder
               </NavLink>
             </li>
           </ul>

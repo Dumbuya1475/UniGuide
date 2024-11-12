@@ -117,7 +117,7 @@ function Settings() {
           </div>
         </>
       ) : (
-        <p>Loading user data...</p>
+        <p>Loading your data...</p>
       )}
 
       {/* Career Path Selection (Always visible) */}
@@ -160,7 +160,7 @@ function Settings() {
         />
       </div>
       <button onClick={handleSaveChanges} disabled={!newImage}>
-        Save Changes
+        Save Profile
       </button>
 
       {/* Sign Out Button */}

@@ -1,4 +1,5 @@
 .sidebar {
+  overflow-y: scroll;
   width: 250px;
   height: 100vh;
   background-color: #fff;
@@ -14,6 +15,33 @@
   top: 0;
   bottom: 0;
   transition: transform 0.3s ease;
+}
+
+/* For the entire scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  /* Width of the scrollbar */
+  height: 10px;
+  /* Height of the scrollbar (for horizontal scrollbar) */
+  transition: all .3s ease;
+}
+
+/* For the scrollbar track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+/* For the scrollbar thumb (the draggable part) */
+::-webkit-scrollbar-thumb {
+  background: var(--secondary-color);
+  transition: all .3s ease;
+  border-radius: 10px;
+}
+
+/* Thumb hover effect */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color);
 }
 
 .sidebar.open {
@@ -119,94 +147,36 @@
   font-weight: bold;
 }
 
-/* ====================================================== */
-/* Responsive Styles */
-@media (max-width: 768px) {
-
-  /* Tablet */
-  .close-icon {
-    cursor: pointer;
-    margin-left: auto;
-    color: #fff;
-    display: block;
-  }
-}
-
-
-@media (max-width: 480px) {
-
-  /* Phone */
-  .sidebar {
-  }
-
-  /* .sidebar.closed {
-    transform: translateX(-100%);
-  } */
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* ==================================================== */
 /* Open and close buttons */
-.open-button,
-.close-button {
+.open-button {
   position: fixed;
-  top: 20px;
-  left: 20px;
+  top: 0.7rem;
+  left: 0rem;
   background: transparent;
   border: none;
   font-size: 1.5rem;
-  color: #333;
+  color: var(--highlight-color);
   cursor: pointer;
   z-index: 25;
+  display: none;
 }
 
 .close-button {
-  left: 250px;
-  /* Adjust as per sidebar width if needed */
+  position: fixed;
+  top: 0.6rem;
+  left: 12rem;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  cursor: pointer;
+  z-index: 25;
+  display: none;
 }
 
-/* Sidebar base styles */
-.sidebar {
-  width: 230px;
-  height: 100vh;
-  background-color: #fff;
-  color: #333;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  position: fixed;
-  z-index: 20;
-  box-shadow: 1px 1px 5px rgba(0, 0, 3, 0.4);
-  left: 0;
-  top: 0;
-  bottom: 0;
-  transition: transform 0.3s ease;
-}
 
 /* Sidebar open/closed states */
 .sidebar.open {
@@ -217,22 +187,22 @@
   transform: translateX(-100%);
 }
 
-.navbar-logo {
+/* .navbar-logo {
   font-size: 1.9rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
+} */
 
-.sidebar ul {
+/* .sidebar ul {
   list-style: none;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   margin-top: 3rem;
-}
+} */
 
-.sidebar ul li a {
+/* .sidebar ul li a {
   color: #333;
   font-size: large;
   font-weight: normal;
@@ -240,16 +210,16 @@
   display: flex;
   align-items: center;
   transition: all 0.3s ease;
-}
+} */
 
-.sidebar ul li a:hover {
+/* .sidebar ul li a:hover {
   color: #004080;
-}
+} */
 
-.sidebar ul li a svg {
+/* .sidebar ul li a svg {
   margin-right: 10px;
   transition: all 0.3s ease;
-}
+} */
 
 .sidebar ul li a:hover svg {
   color: #ffcc00;
@@ -258,6 +228,29 @@
 .active {
   color: #4CAF50;
   font-weight: bold;
+}
+
+
+
+
+
+
+/* Active link styling */
+.sidebar ul li .active {
+  background-color: var(--secondary-color);
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.sidebar ul li .active svg {
+  color: var(--highlight-color);
+}
+
+/* Optional: Adjust text color on hover for active item */
+.sidebar ul li .active:hover {
+  background-color: var(--primary-color);
+  color: var(--highlight-color);
 }
 
 /* Responsive Styles */
@@ -269,25 +262,24 @@
   .sidebar.open {
     transform: translateX(0);
   }
+
+  .close-button,
+  .open-button {
+    display: block;
+  }
 }
 
 
+@media (max-width: 480px) {
 
+  /* Phone */
+  .sidebar {}
 
+  .open-button {
+    display: block;
+  }
 
-/* Active link styling */
-.sidebar ul li .active {
-  background-color: #004080;
-  /* Your desired background color */
-  color: #fff;
-  /* Change text color for better contrast */
-  border-radius: 5px;
-  /* Optional: for rounded corners */
-  padding: 10px;
-  /* Add padding for a better look */
-}
-
-/* Optional: Adjust text color on hover for active item */
-.sidebar ul li .active:hover {
-  color: #ffcc00;
+  /* .sidebar.closed {
+    transform: translateX(-100%);
+  } */
 }

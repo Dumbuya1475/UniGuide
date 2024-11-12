@@ -5,9 +5,10 @@
   padding: 1rem;
 }
 
-.settings-container img{
+.settings-container img {
   width: 5rem;
 }
+
 .signout-button,
 button {
   display: inline-block;
@@ -20,9 +21,11 @@ button {
   font-size: 0.9rem;
   transition: all .3s ease;
 }
+
 button {
   background-color: var(--primary-color);
 }
+
 button:hover {
   background-color: var(--secondary-color);
 }
@@ -39,21 +42,10 @@ button:hover {
   font-size: 16px;
 }
 
-.signout-button {
-  margin-top: 20px;
-  padding: 10px;
-  background-color: #d9534f;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+
+.password-change-form button {
+  margin: 1rem;
 }
-
-.signout-button:hover {
-  background-color: #c9302c;
-}
-
-
 .user-info {
   margin: 20px 0;
   font-size: 16px;
@@ -64,10 +56,6 @@ button:hover {
   color: #555;
 }
 
-.password-change-form input,
-.password-change-form button {
-  margin: 10px 0;
-}
 
 .signout-button {
   margin-top: 20px;
@@ -76,6 +64,7 @@ button:hover {
   padding: 10px;
   border: none;
   cursor: pointer;
+  margin: 1rem;
 }
 
 .signout-button:hover {

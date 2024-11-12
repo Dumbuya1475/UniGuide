@@ -1,5 +1,4 @@
 // src/components/DashboardNavbar.jsx
-import { FaBars } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { auth, db } from "../../firebaseConfig";
 import { onAuthStateChanged } from "firebase/auth";
@@ -61,7 +60,6 @@ function DashboardNavbar() {
     <nav className="dashboard-navbar">
       <div className="navbar-content">
         <div className="left">
-          <FaBars onClick={toggleSidebar} className="menu-icon" />
           {userData ? (
             <p>Welcome, {userData.fullName || "User"}</p>
           ) : (
