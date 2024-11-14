@@ -16,7 +16,7 @@ import "../components/styles/Features.css";
 
 function Features() {
   return (
-    <section className="features-section" id="services">
+    <section className="features-section" id="features">
       <div className="features-container">
         <div className="contents">
           <div className="features-header">

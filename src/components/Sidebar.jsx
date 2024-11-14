@@ -7,7 +7,7 @@ import {
   FaToolbox,
   FaLayerGroup,
 } from "react-icons/fa"; // Example Icons
-import UG_logo from "../assets/logos/uniguide-logo.webp";
+import UG_logo from "../assets/logos/UG_logo.jpg";
 import "./Sidebar.css"; // Assuming you want separate styles
 
 function Sidebar() {

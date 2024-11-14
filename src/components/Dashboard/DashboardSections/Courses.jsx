@@ -2,7 +2,7 @@
 
 import courses from "/src/data/coursesData.js";
 import CourseCard from "./CourseCard";
-import "./LearnAboutCourses.css";
+import "./Courses.css";
 
 function Courses() {
   return (

@@ -87,11 +87,19 @@ ul li {
   .menu-icon {
     display: block;
   }
+
+  .left {
+    margin-left: 2rem;
+  }
 }
 
 
 @media (max-width: 480px) {
   .menu-icon {
     display: block;
+  }
+
+  .left {
+    margin-left: 2rem;
   }
 }

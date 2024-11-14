@@ -38,7 +38,7 @@ function FAQSection() {
   };
 
   return (
-    <div className="faq-section">
+    <div className="faq-section" id="faq">
       <h2>Frequently Asked Questions</h2>
       <ul className="faq-list">
         {faqs.map((faq, index) => (

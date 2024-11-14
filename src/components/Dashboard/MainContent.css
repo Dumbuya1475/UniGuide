@@ -40,6 +40,8 @@
   .main-content {
     margin-right: 0;
     padding: var(--padding-small);
+    margin: 0;
+    margin-top: 1rem;
   }
 
   .main-content h1 {

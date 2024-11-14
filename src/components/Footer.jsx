@@ -65,7 +65,7 @@ function Footer() {
               <a href="#about">About Us</a>
             </li>
             <li>
-              <a href="#services">Services</a>
+              <a href="#features">Features</a>
             </li>
             <li>
               <a href="#faq">FAQ</a>
@@ -77,12 +77,12 @@ function Footer() {
               <a href="/login">Login</a>
             </li>
           </ul>
-          <ul className="box">
-            <li className="link_name">Dashboard</li>
+          {/* <ul className="box"> */}
+            {/* <li className="link_name">Dashboard</li>
             <li>
               <a href="">Home</a>
-            </li>
-            <li>
+            </li> */}
+            {/* <li>
               <a href="">Courses</a>
             </li>
             <li>
@@ -90,8 +90,8 @@ function Footer() {
             </li>
             <li>
               <a href="">Skills</a>
-            </li>
-          </ul>
+            </li> */}
+          {/* </ul> */}
           <ul className="box">
             <li className="link_name">Tech Inspire SL</li>
             <li>
@@ -114,21 +114,9 @@ function Footer() {
                 {" "}
                 <FaPhone /> +23274523500
               </p>
-            </li>
-            <li>
-              <p>
-                {" "}
-                <FaPhone /> +23274523500
-              </p>
               <p>
                 {" "}
                 <FaWhatsapp /> +23274523500
-              </p>
-            </li>
-            <li>
-              <p>
-                {" "}
-                <FaPhone /> +23274523500
               </p>
             </li>
           </ul>

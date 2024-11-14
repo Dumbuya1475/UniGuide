@@ -5,6 +5,15 @@
   padding: 16px;
 }
 
+/* padding: 20px;
+    max-width: 800px;
+    margin: 0 auto; */
+.learn-about-courses h1 {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
 .course-card h2 {
   font-size: 1.5em;
   margin: 0 0 8px;
@@ -34,10 +43,20 @@
   border: 1px solid #ddd;
 }
 
+.course-details h3:first-child {
+  margin-top: 0rem;
+}
+
 .course-details h3 {
   font-size: 1.2rem;
   color: var(--text-color-dark);
-  margin-bottom: 0.5rem;
+  margin: 0;
+  margin-top: 1.5rem;
+  margin-bottom: 0.3rem;
+}
+
+.course-details p {
+  margin: 0;
 }
 
 .course-details ul {
@@ -52,6 +71,14 @@
   color: var(--text-color-dark);
 }
 
+.course-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
 /* ====================================================== */
 /* Responsive Styles */
 @media (max-width: 768px) {
@@ -60,12 +87,21 @@
   .main-content {
     margin-left: 0;
   }
+
+  .course-list {
+    grid-template-columns: 1fr;
+  }
 }
 
 
 @media (max-width: 480px) {
 
   /* Phone */
+  .learn-about-courses {
+    padding: var(--padding-small);
+    padding-top: 0rem;
+  }
+
   .course-card {
     margin-left: 0;
     margin-right: 0;
@@ -74,4 +110,9 @@
   .main-content h1 {
     font-size: 2rem;
   }
+
+  .course-list {
+    grid-template-columns: 1fr;
+  }
+
 }

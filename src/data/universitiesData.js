@@ -3,7 +3,10 @@ const universities = [
   {
     id: "limkokwing-university",
     name: "Limkokwing University (Sierra Leone Campus)",
-    logo: "/src/assets/universities/linko.png",
+    // logo: "/assets/universities/linko.png",
+    
+    // logo: "../../assets/universities/AI.jpg",
+    logo: "../../../src/assets/universities/linko.png",
     description: "Your gateway to excellence in tech and creative education.",
     about:
       "Linkonking University of Creative Technology is a private institution located in Freetown, Sierra Leone.The university specializes in providing top- tier education in the field of technology and creative arts.Our programs are designed to equip students with the skills they need to succeed in today's digital age",

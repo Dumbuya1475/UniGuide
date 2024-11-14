@@ -279,7 +279,7 @@
     display: block;
   }
 
-  /* .sidebar.closed {
+  .sidebar.closed {
     transform: translateX(-100%);
-  } */
+  }
 }

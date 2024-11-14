@@ -2,7 +2,7 @@
 import { FaArrowAltCircleLeft } from "react-icons/fa";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
+import DashboardNavbar from "../DashboardNavbar";
 import Sidebar from "../Sidebar";
 import "./careerDetail.css";
 
@@ -207,13 +207,14 @@ function CareerDetail() {
     navigate(`/dashboard/careers`);
   };
 
-  // Effect to scroll to the top when the component mounts
+  // Effect to scroll to the top when the component b
   useEffect(() => {
     window.scrollTo(0, 0); // Scrolls to the top of the page
   }, []); // Empty dependency array means this effect runs once on mount
 
   return (
     <div className="career-detail-page">
+      <DashboardNavbar/>
       <Sidebar />
       <div className="career-detail-container">
         <button onClick={() => handleLearnMore()} className="backBtn">
@@ -246,13 +247,13 @@ function CareerDetail() {
             <p>{career.educationalPath}</p>
             <h3>Salary Range</h3>
             <p>{career.salaryRange}</p>
-            <h3>Notable Companies</h3>
+            <h3>Notable Companies Globally</h3>
             <ul>
               {career.globalNotableCompanies.map((company, index) => (
                 <li key={index}>{company}</li>
               ))}
             </ul>
-            <h3>Notable Companies</h3>
+            <h3>Notable Companies In Sierra Leone</h3>
             <ul>
               {career.notableCompaniesSierraLeone.map((company, index) => (
                 <li key={index}>{company}</li>

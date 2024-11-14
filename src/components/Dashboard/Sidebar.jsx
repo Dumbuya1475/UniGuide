@@ -35,7 +35,7 @@ function Sidebar() {
   }, []);
 
   return (
-    <div>
+    <div className="dashboard-sidebar">
       {!isOpen ? (
         <button className="open-button" onClick={openSidebar}>
           <FaBars />
