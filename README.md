@@ -28,7 +28,7 @@ Follow these instructions to set up the UniGuide project locally.
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/YourUsername/UniGuide.git
+   git clone https://github.com/Dumbuya1475/UniGuide.git
    cd UniGuide
    ```
 
