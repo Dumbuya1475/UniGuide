@@ -28,7 +28,7 @@ Follow these instructions to set up the UniGuide project locally.
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/YourUsername/UniGuide.git
+   git clone https://github.com/Dumbuya1475/UniGuide.git
    cd UniGuide
    ```
 
@@ -173,7 +173,3 @@ Contributions, issues, and feature requests are welcome! Feel free to check the 
 ## ✨ Acknowledgements
 
 Thanks to the KNESST Developers Challenge for the opportunity and resources provided to bring UniGuide to life.
-
----
-
-This template offers a detailed overview while remaining easy to navigate. Feel free to add sections for additional instructions or team information if needed!
