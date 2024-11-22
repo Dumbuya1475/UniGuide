@@ -1,0 +1,175 @@
+.insight-section {}
+
+.insight-container {
+  width: 100%;
+  display: grid;
+  flex-wrap: wrap;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding: 0;
+  margin: 0;
+}
+
+.insight-container-box {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  gap: 0rem;
+  /* background-color: red; */
+
+}
+
+.insight-section h3 {
+  margin: 0;
+}
+
+img {
+  /* display: none; */
+}
+
+.career-term,
+.daily-fact,
+.career-tip,
+.quote-of-the-day,
+.job-market-insight,
+.industry-spotlight,
+.success-story,
+.recommended-course,
+.skills-in-demand {
+  height: auto;
+}
+
+.career-term,
+.daily-fact,
+.career-tip,
+.quote-of-the-day,
+.job-market-insight,
+.industry-spotlight,
+.success-story,
+.recommended-course,
+.skills-in-demand {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 5);
+  /* width: 100%; */
+  max-width: 350px;
+  height: fit-content;
+  margin: 1rem auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.skills-in-demand,
+.recommended-course {
+  display: none;
+}
+
+.career-term img,
+.success-story img {
+  max-width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+.daily-fact p,
+.career-tip p,
+.quote-of-the-day p,
+.job-market-insight p,
+.industry-spotlight p,
+.success-story p {
+  color: #555;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.recommended-course a {
+  /* display: inline-block;
+  margin-top: 1rem;
+  background-color: #007BFF;
+  color: white;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border-radius: 4px; */
+}
+
+.recommended-course a:hover {
+  /* background-color: #0056b3; */
+}
+
+.skills-in-demand ul {
+  /* list-style-type: none;
+  padding: 0; */
+}
+
+.skills-in-demand li {
+  /* font-size: 1rem;
+  color: #444; */
+}
+
+.skills-in-demand li strong {
+  /* color: #007BFF; */
+}
+
+.skills-in-demand li em {
+  /* font-style: italic;
+  color: #666; */
+}
+
+.industry-spotlight {
+  background-color: #e9f7fe;
+}
+
+.industry-spotlight h3 {
+  color: #0056b3;
+}
+
+.success-story h3 {
+  color: #006400;
+}
+
+.success-story p {
+  font-style: italic;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .insight-container {
+    width: 100%;
+    display: grid;
+    flex-wrap: wrap;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0rem 2rem;
+    padding: 0;
+    margin: 0;
+  }
+
+  .insight-container-box {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    gap: 0rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .insight-container {
+    width: 100%;
+    display: grid;
+    flex-wrap: wrap;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 0rem;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.success-story {
+  display: none;
+}

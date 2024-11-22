@@ -15,7 +15,7 @@
   /* For mobile devices */
   --padding-medium: 20px;
   /* For tablets */
-  --padding-large: 10rem 10rem;
+  /* --padding-large: 1 0rem 10rem; */
   /* For desktop */
 }
 
@@ -24,7 +24,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 40px 20px;
+  /* padding: 40px 20px; */
   background-color: var(--background-color);
   color: #003060;
   padding: var(--padding-large);

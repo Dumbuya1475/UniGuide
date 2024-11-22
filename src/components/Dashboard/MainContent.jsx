@@ -12,6 +12,7 @@ import Sidebar from "./Sidebar";
 import Universities from "./DashboardSections/Universities";
 
 import "./MainContent.css";
+import InsightSection from "./DashboardSections/Insight";
 
 function MainContent() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -31,6 +32,7 @@ function MainContent() {
         <Route path="/home" element={<DashboardHome />} />
         <Route path="/overview" element={<Overview />} />
         <Route path="/courses" element={<Courses />} />
+        <Route path="/insight" element={<InsightSection />} />
         <Route path="/explore-universities" element={<Universities />} />
         <Route path="/careers" element={<Careers />} />
         <Route path="/skills" element={<Skills />} />

@@ -65,6 +65,11 @@ function Sidebar() {
               </NavLink>
             </li>
             <li>
+              <NavLink to="/dashboard/insight" activeClassName="active">
+                <FaBookOpen /> Insights
+              </NavLink>
+            </li>
+            <li>
               <NavLink to="/dashboard/courses" activeClassName="active">
                 <FaBook /> Learn About Courses
               </NavLink>

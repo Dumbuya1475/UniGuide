@@ -55,12 +55,14 @@
   max-width: 600px;
 }
 
+.university-detail-page .uni-levels,
 .university-detail-page .uni-detail {
   list-style-type: circle;
   padding: 0;
   color: #666;
 }
 
+.university-detail-page .uni-levels li,
 .university-detail-page .uni-detail li {
   list-style-type: circle;
   margin: 0.5rem 0;

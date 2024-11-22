@@ -51,6 +51,12 @@ function UniversityDetail() {
             <p>{university.location}</p>
             <h3>Type</h3>
             <p>{university.type}</p>
+            <h3>Level of Programme</h3>
+            <ul className="uni-levels">
+              {university.university_level.map((level, index) => (
+                <li key={index}>{level}</li>
+              ))}
+            </ul>
             <h3>Available Tech Courses</h3>
             <ul className="uni-detail">
               {university.techCourses.map((course, index) => (

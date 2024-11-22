@@ -43,6 +43,9 @@
   justify-content: center;
 }
 
+.landing-hero h3{
+  color: #fff;
+}
 .landing-hero h1 {
   font-size: 4.5rem;
   color: var(--primary-color);

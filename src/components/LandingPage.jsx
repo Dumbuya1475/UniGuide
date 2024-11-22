@@ -20,7 +20,7 @@ function LandingPage() {
 
   const handleGetStarted = () => {
     // Navigate to main page
-    navigate("/Dashboard/home");
+    navigate("/Signup");
   };
 
   return (
