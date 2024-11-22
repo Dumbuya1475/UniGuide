@@ -4,7 +4,7 @@ const careerTerms = [
     term: "Soft Skills",
     definition:
       "Personal attributes that enable you to interact effectively with others.",
-    image: "/src/assets/BG-Images/university_st.png", // Replace with an actual image URL
+    image: "/src/assets/BG-Images/soft-skill.jpg", // Replace with an actual image URL
   },
   {
     term: "Networking",
