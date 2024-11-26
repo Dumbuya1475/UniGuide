@@ -1,13 +1,62 @@
-// src/components/Universities.jsx
-import universities from "../../../data/universitiesData";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { db, auth } from "../../../firebaseConfig";
+import {
+  doc,
+  getDoc,
+  setDoc,
+  updateDoc,
+  arrayUnion,
+  arrayRemove,
+} from "firebase/firestore";
+import universities from "../../../data/universitiesData";
 import "./Universities.css";
 
 function Universities() {
   const navigate = useNavigate();
+  const [favorites, setFavorites] = useState([]);
+  const user = auth.currentUser; // Logged-in user
+
+  useEffect(() => {
+    if (user) {
+      // Fetch user's favorites from Firestore on component mount
+      const fetchFavorites = async () => {
+        const docRef = doc(db, "favorites", user.uid);
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          setFavorites(docSnap.data().favorites || []);
+        }
+      };
+      fetchFavorites();
+    }
+  }, [user]);
 
   const handleLearnMore = (universityId) => {
     navigate(`/universities/${universityId}`);
+  };
+
+  const toggleFavorite = async (universityId) => {
+    if (!user) {
+      alert("Please log in to save favorites.");
+      return;
+    }
+
+    const docRef = doc(db, "favorites", user.uid);
+    if (favorites.includes(universityId)) {
+      // Remove from favorites
+      setFavorites((prev) => prev.filter((id) => id !== universityId));
+      await updateDoc(docRef, {
+        favorites: arrayRemove(universityId),
+      });
+    } else {
+      // Add to favorites
+      setFavorites((prev) => [...prev, universityId]);
+      await setDoc(
+        docRef,
+        { favorites: arrayUnion(universityId) },
+        { merge: true }
+      );
+    }
   };
 
   return (
@@ -39,14 +88,14 @@ function Universities() {
               >
                 Learn More
               </button>
-              <a
-                href={uni.website}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="website-link"
+              <button
+                onClick={() => toggleFavorite(uni.id)}
+                className={`favorite-button ${
+                  favorites.includes(uni.id) ? "favorited" : ""
+                }`}
               >
-                Visit Website
-              </a>
+                {favorites.includes(uni.id) ? "⭐" : "☆"} Favorite
+              </button>
             </div>
           </div>
         ))}
